@@ -1,0 +1,196 @@
+/* Сайт-образец для 5 темы: ученики смотрят на него и повторяют с помощью нейросети.
+   Цвета и шрифт — по брендбуку Yellow Club: жёлтый #ffcd2b, белый, чёрный #191919, шрифт Nunito */
+
+body {
+    margin: 0;
+    padding: 24px;
+    font-family: "Nunito", Arial, sans-serif;
+    background: #fffcf2;
+    color: #191919;
+    display: flex; /* все части страницы — в столбик с расстоянием */
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Цветные блоки с подписью посередине */
+.block {
+    padding: 20px;
+    border-radius: 18px;
+    font-size: 18px;
+    font-weight: 700;
+    display: flex; /* надпись по центру блока */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(25, 25, 25, 0.08);
+}
+
+/* Большие части, внутри которых лежат другие блоки.
+   Название части — бледной подписью в левом верхнем углу */
+.area {
+    position: relative;
+    padding: 40px 20px 20px;
+    border-radius: 24px;
+}
+
+.area::before {
+    content: attr(data-label);
+    position: absolute;
+    top: 14px;
+    left: 22px;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(25, 25, 25, 0.35);
+}
+
+/* Шапка на всю ширину: логотип слева, меню справа */
+.header {
+    background: #fff1bf;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo {
+    background: #ffcd2b;
+    width: 160px;
+    border-radius: 999px; /* форма «таблетки», как у значка club в логотипе */
+    font-weight: 800;
+}
+
+/* Меню внутри шапки: пункты в ряд */
+.menu {
+    background: #ffffff;
+    display: flex;
+    gap: 10px;
+}
+
+.menu-item {
+    background: #191919;
+    color: #ffffff;
+    padding: 12px 22px;
+    border-radius: 999px;
+}
+
+.banner {
+    background: #ffcd2b;
+    height: 180px;
+    font-size: 32px;
+    font-weight: 800;
+    border-radius: 24px;
+}
+
+/* Боковая панель и содержимое рядом: панель узкая, содержимое широкое */
+.page {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 20px;
+}
+
+.sidebar {
+    background: #191919;
+    color: #ffcd2b;
+    border-radius: 24px;
+}
+
+.content {
+    background: #f2f2f2;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Карточки сеткой в 3 колонки */
+.cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+.card {
+    background: #ffffff;
+    height: 100px;
+}
+
+/* Картинка слева, текст справа */
+.about {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.picture {
+    background: #ffcd2b;
+    width: 150px;
+    height: 150px;
+}
+
+.text {
+    background: #ffffff;
+    flex-grow: 1;
+    height: 60px;
+}
+
+/* Подвал на всю ширину: название слева, год справа */
+.footer {
+    background: #191919;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.footer::before {
+    color: rgba(255, 255, 255, 0.4); /* на тёмном фоне подпись светлая */
+}
+
+.footer-item {
+    background: #2d2d2d;
+    color: #ffcd2b;
+    box-shadow: none;
+}
+
+/* Телефон */
+@media (max-width: 600px) {
+    body {
+        padding: 16px;
+    }
+
+    .header {
+        flex-direction: column; /* меню под логотипом */
+        align-items: stretch;
+    }
+
+    .logo {
+        width: auto;
+    }
+
+    .menu {
+        justify-content: center;
+    }
+
+    .page {
+        grid-template-columns: 1fr; /* боковая панель над содержимым */
+    }
+
+    .cards {
+        grid-template-columns: 1fr 1fr; /* карточки в 2 колонки */
+    }
+
+    .about {
+        flex-direction: column; /* текст под картинкой */
+        align-items: stretch;
+    }
+
+    .picture {
+        width: auto;
+    }
+
+    .footer {
+        flex-direction: column; /* название и год друг под другом */
+        align-items: stretch;
+    }
+}
